@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<section class="wrap" style="padding:120px 32px;">
+  <span class="eyebrow">Фаза 0 · Каркас проекта</span>
+  <h1 style="margin-top:16px;">Юнилифт — сайт в разработке</h1>
+  <p style="margin-top:16px;color:var(--steel-700);max-width:640px;">
+    Эта страница подтверждает, что Django, шаблоны, статика и шрифты подключены
+    корректно. Секции лендинга появятся в Фазе 2.
+  </p>
+  <p style="margin-top:24px;">
+    <a href="{% url 'admin:index' %}" class="btn btn-primary">Админка</a>
+  </p>
+</section>
+{% endblock %}
