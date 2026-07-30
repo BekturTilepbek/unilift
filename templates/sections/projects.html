@@ -1,0 +1,19 @@
+{% load i18n %}
+{% if featured_projects %}
+<section class="projects-section" id="projects">
+  <div class="wrap">
+    <span class="eyebrow">{% translate "Проекты" %}</span>
+    <h2>{% translate "Реализованные проекты" %}</h2>
+
+    <div class="pgrid">
+      {% for project in featured_projects %}
+        {% include "projects/_card.html" %}
+      {% endfor %}
+    </div>
+
+    <div class="projects-more">
+      <a href="{% url 'projects:list' %}" class="btn btn-ghost">{% translate "Все проекты" %}</a>
+    </div>
+  </div>
+</section>
+{% endif %}

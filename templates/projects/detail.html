@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ project.title }} — ЮНИЛИФТ{% endblock %}
+{% block meta_description %}{{ project.summary }}{% endblock %}
+
+{% block content %}
+<section class="project-detail">
+  <div class="wrap">
+    <a href="{% url 'projects:list' %}" class="back-link">← {% translate "Все проекты" %}</a>
+
+    {% if project.categories.all %}
+      <div class="pcat">{{ project.categories.all|join:" · " }}</div>
+    {% endif %}
+    <h1>{{ project.title }}</h1>
+
+    <div class="project-meta">
+      {% if project.city %}<span>{{ project.city }}</span>{% endif %}
+      {% if project.year %}<span>{{ project.year }}</span>{% endif %}
+      {% if project.equipment %}<span>{{ project.equipment }}</span>{% endif %}
+    </div>
+
+    {% if project.cover %}
+      <img src="{{ project.cover.url }}" alt="{{ project.title }}" class="project-cover">
+    {% endif %}
+
+    {% if project.description %}
+      <div class="project-description">{{ project.description|linebreaks }}</div>
+    {% endif %}
+
+    {% if project.images.all %}
+      <div class="project-gallery">
+        {% for img in project.images.all %}
+          <figure>
+            <img src="{{ img.image.url }}" alt="{{ img.caption|default:project.title }}">
+            {% if img.caption %}<figcaption>{{ img.caption }}</figcaption>{% endif %}
+          </figure>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -86,3 +86,35 @@
 .wcell h3 { font-size: 17px; margin: 10px 0 8px; }
 .wcell p { font-size: 14px; color: var(--steel-700); line-height: 1.5; }
 @media (max-width: 900px) { .why-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ===================== PROJECTS (лендинг) ===================== */
+.projects-section { padding: 90px 0; }
+.projects-section h2 { font-size: clamp(28px, 3.2vw, 42px); margin: 16px 0 40px; }
+.projects-more { margin-top: 40px; text-align: center; }
+
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.pcard {
+  display: block;
+  background: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease);
+}
+.pcard:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.pcard-img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.pcard-img--empty { background: var(--steel-200); }
+.pcard .pbody { padding: 20px; }
+.pcard .pcat {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+}
+.pcard h3 { font-size: 17px; }
+.pcard p { margin-top: 8px; font-size: 14px; color: var(--steel-700); }
+
+@media (max-width: 900px) { .pgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .pgrid { grid-template-columns: 1fr; } }

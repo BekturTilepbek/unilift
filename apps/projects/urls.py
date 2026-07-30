@@ -1,8 +1,10 @@
 from django.urls import path
 
+from .views import ProjectDetailView, ProjectListView
+
 app_name = "projects"
 
-# Каталог (list.html с фильтром по категориям + пагинацией) и детальные страницы
-# (<slug>/ с галереей) добавляются в Фазе 3. Пока — пустой urlpatterns, чтобы
-# include("apps.projects.urls") в config/urls.py не падал.
-urlpatterns: list = []
+urlpatterns = [
+    path("", ProjectListView.as_view(), name="list"),
+    path("<slug:slug>/", ProjectDetailView.as_view(), name="detail"),
+]
