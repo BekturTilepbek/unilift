@@ -1,10 +1,15 @@
 {% load i18n %}
-<a href="{{ project.get_absolute_url }}" class="pcard">
-  {% if project.cover %}
-    <img src="{{ project.cover.url }}" alt="{{ project.title }}" class="pcard-img">
-  {% else %}
-    <div class="pcard-img pcard-img--empty"></div>
-  {% endif %}
+<a href="{{ project.get_absolute_url }}" class="pcard-project">
+  <div class="pimg">
+    {% if project.cover %}
+      <img src="{{ project.cover.url }}" alt="{{ project.title }}">
+    {% else %}
+      <span class="ph">{% translate "Фото объекта" %}</span>
+    {% endif %}
+    {% if project.categories.first %}
+      <span class="tag">{{ project.categories.first.name|upper }}</span>
+    {% endif %}
+  </div>
   <div class="pbody">
     {% if project.categories.all %}
       <div class="pcat">{{ project.categories.all|join:" · " }}</div>
