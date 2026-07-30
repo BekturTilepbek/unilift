@@ -1,0 +1,25 @@
+{% load i18n %}
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>{% translate "Безопасные и надёжные решения для" %} <span class="accent">{% translate "вертикального транспорта" %}</span></h1>
+      <p class="lead">{% translate "Более 8 лет поставляем, устанавливаем и обслуживаем лифты, эскалаторы и подъёмное оборудование мирового уровня — на объектах любого масштаба." %}</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">
+          {% translate "Подобрать оборудование" %}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contacts" class="btn btn-ghost">{% translate "Связаться с нами" %}</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="440" fill="#2B2B2B"/>
+        <rect x="150" y="20" width="100" height="400" fill="#1A1A1A" stroke="#5B5F63" stroke-width="1"/>
+        <rect x="160" y="60" width="80" height="70" rx="2" fill="#383838" stroke="#E2001A" stroke-width="1.5"/>
+        <line x1="200" y1="20" x2="200" y2="420" stroke="#5B5F63" stroke-width="1" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+  </div>
+</section>

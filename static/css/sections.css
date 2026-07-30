@@ -1,0 +1,88 @@
+/* ===================== HERO ===================== */
+.hero {
+  position: relative;
+  padding: 180px 0 100px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--paper) 0%, var(--steel-100) 100%);
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero h1 { font-size: clamp(34px, 4.2vw, 56px); margin-top: 18px; }
+.hero h1 .accent { color: var(--accent); }
+.hero .lead { margin-top: 20px; font-size: 17px; color: var(--steel-700); max-width: 520px; }
+.hero-cta { display: flex; gap: 16px; margin-top: 32px; }
+.hero-visual {
+  position: relative;
+  aspect-ratio: 1 / 1.1;
+  background: var(--ink);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.hero-visual svg { width: 100%; height: 100%; }
+@media (max-width: 900px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero { padding: 150px 0 60px; }
+  .hero-visual { max-width: 360px; margin: 0 auto; }
+}
+
+/* ===================== STATS ===================== */
+.stats { background: var(--ink); padding: 56px 0; }
+.stats .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
+.stat-num { font-family: var(--font-display); font-size: clamp(32px, 3.6vw, 48px); font-weight: 800; color: #fff; }
+.stat-label { margin-top: 8px; font-size: 14px; color: var(--steel-500); }
+@media (max-width: 700px) { .stats .wrap { grid-template-columns: 1fr; gap: 28px; } }
+
+/* ===================== PARTNERSHIP ===================== */
+.partnership { padding: 90px 0; }
+.partnership .wrap { max-width: 780px; }
+.partnership h2 { font-size: clamp(28px, 3.2vw, 42px); margin-top: 16px; }
+.partnership p { margin-top: 20px; color: var(--steel-700); font-size: 16px; }
+
+/* ===================== PRODUCTS ===================== */
+.products { padding: 90px 0; background: var(--steel-100); }
+.products h2 { font-size: clamp(28px, 3.2vw, 42px); margin: 16px 0 40px; }
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.product-card {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease);
+}
+.product-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.product-card h3 { font-size: 19px; margin-top: 8px; }
+@media (max-width: 900px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .product-grid { grid-template-columns: 1fr; } }
+
+/* ===================== SERVICES ===================== */
+.services { padding: 90px 0; background: var(--ink); color: #fff; }
+.services h2 { font-size: clamp(28px, 3.2vw, 42px); margin: 16px 0 48px; color: #fff; }
+.service-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+.step-num { font-family: var(--font-mono); color: var(--accent); font-size: 13px; }
+.stxt h3 { color: #fff; font-size: 17px; margin: 10px 0 8px; }
+.stxt p { color: var(--steel-500); font-size: 14px; line-height: 1.5; }
+@media (max-width: 900px) { .service-steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .service-steps { grid-template-columns: 1fr; } }
+
+/* ===================== INDUSTRIES ===================== */
+.industries { padding: 90px 0; }
+.industries h2 { font-size: clamp(28px, 3.2vw, 42px); margin: 16px 0 40px; }
+.ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.ind { background: var(--white); border: 1px solid var(--steel-200); border-radius: 4px; padding: 24px; text-align: center; }
+.ind svg { margin: 0 auto 12px; color: var(--steel-700); }
+.ind h3 { font-size: 15px; font-weight: 600; }
+@media (max-width: 900px) { .ind-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ===================== WHY (О компании) ===================== */
+.why { padding: 90px 0; background: var(--steel-100); }
+.why h2 { font-size: clamp(28px, 3.2vw, 42px); margin: 16px 0 40px; }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.wn { font-family: var(--font-mono); font-size: 22px; color: var(--accent); }
+.wcell h3 { font-size: 17px; margin: 10px 0 8px; }
+.wcell p { font-size: 14px; color: var(--steel-700); line-height: 1.5; }
+@media (max-width: 900px) { .why-grid { grid-template-columns: 1fr 1fr; } }
