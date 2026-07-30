@@ -7,17 +7,6 @@ header {
   border-bottom: 1px solid var(--steel-200);
 }
 
-.topbar {
-  background: var(--ink);
-  color: var(--steel-300);
-  font-size: 12px;
-  letter-spacing: .02em;
-}
-.topbar .wrap { display: flex; align-items: center; height: 34px; }
-.topbar .partner { display: inline-flex; align-items: center; gap: 8px; color: var(--steel-100); }
-.topbar .partner b { color: #fff; letter-spacing: .08em; font-weight: 600; }
-.topbar .tdot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-
 .nav {
   display: flex;
   align-items: center;

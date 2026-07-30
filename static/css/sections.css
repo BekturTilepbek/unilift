@@ -16,6 +16,17 @@
 .hero h1 .accent { color: var(--accent); }
 .hero .lead { margin-top: 20px; font-size: 17px; color: var(--steel-700); max-width: 520px; }
 .hero-cta { display: flex; gap: 16px; margin-top: 32px; }
+.partner-badge {
+  display: inline-flex; align-items: center; gap: 14px; padding: 14px 20px;
+  background: var(--white); border: 1px solid var(--steel-200); border-radius: 3px; box-shadow: var(--shadow-sm);
+}
+.partner-badge .pb-check {
+  width: 20px; height: 20px; border-radius: 50%; background: var(--accent);
+  display: flex; align-items: center; justify-content: center; flex: none;
+}
+.partner-badge .pb-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--steel-500); line-height: 1.4; }
+.partner-badge .pb-name { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: .14em; color: var(--ink); }
+.partner-badge .pb-div { width: 1px; height: 34px; background: var(--steel-200); }
 .hero-visual {
   position: relative; aspect-ratio: 1 / 1.1;
   background: var(--ink); border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-lg);
