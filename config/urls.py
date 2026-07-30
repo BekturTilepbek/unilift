@@ -3,7 +3,11 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.http import HttpResponse
+from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
+
+from apps.core.sitemaps import ProjectSitemap, StaticViewSitemap
+from apps.core.views import robots_txt
 
 
 def healthz(request):
@@ -11,9 +15,16 @@ def healthz(request):
     return HttpResponse("ok")
 
 
+sitemaps = {
+    "static": StaticViewSitemap,
+    "projects": ProjectSitemap,
+}
+
 urlpatterns = [
     path("healthz/", healthz),
-    path("i18n/", include("django.conf.urls.i18n")),  # переключатель языка в шапке
+    path("i18n/", include("django.conf.urls.i18n")),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
+    path("robots.txt", robots_txt),
 ]
 
 # prefix_default_language=False → русский остаётся на "/", кыргызский уезжает на "/ky/"

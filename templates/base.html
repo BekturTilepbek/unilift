@@ -6,6 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}ЮНИЛИФТ — Официальный дистрибьютор Schindler в Кыргызстане{% endblock %}</title>
 <meta name="description" content="{% block meta_description %}Поставка, монтаж и сервисное обслуживание лифтов, эскалаторов и подъёмного оборудования Schindler в Кыргызстане.{% endblock %}">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ЮНИЛИФТ">
+<meta property="og:title" content="{% block og_title %}ЮНИЛИФТ — Официальный дистрибьютор Schindler в Кыргызстане{% endblock %}"><meta property="og:description" content="{% block og_description %}Поставка, монтаж и сервисное обслуживание лифтов, эскалаторов и подъёмного оборудования Schindler в Кыргызстане.{% endblock %}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:locale" content="{{ LANGUAGE_CODE }}">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +29,22 @@
 <link rel="stylesheet" href="{% static 'css/sections.css' %}">
 <link rel="stylesheet" href="{% static 'css/projects.css' %}">
 {% block extra_css %}{% endblock %}
+
+<link rel="alternate" hreflang="ru" href="{{ hreflang_ru }}">
+<link rel="alternate" hreflang="ky" href="{{ hreflang_ky }}">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "ЮНИЛИФТ",
+  "description": "Официальный дистрибьютор Schindler в Кыргызстане. Поставка, монтаж и сервисное обслуживание лифтов, эскалаторов и подъёмного оборудования.",
+  {% if site.address %}"address": "{{ site.address|escapejs }}",{% endif %}
+  {% if site.phone %}"telephone": "{{ site.phone }}",{% endif %}
+  {% if site.email %}"email": "{{ site.email }}",{% endif %}
+  "url": "{{ request.build_absolute_uri }}"
+}
+</script>
 </head>
 <body>
 

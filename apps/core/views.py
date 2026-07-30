@@ -1,4 +1,6 @@
 from django.views.generic import TemplateView
+from django.http import HttpResponse
+from django.urls import reverse
 
 from apps.projects.models import Project
 
@@ -14,3 +16,12 @@ class HomeView(TemplateView):
             .order_by("order", "-created_at")[:6]
         )
         return ctx
+
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /admin/",
+        f"Sitemap: {request.scheme}://{request.get_host()}{reverse('sitemap')}",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")

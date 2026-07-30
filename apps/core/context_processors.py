@@ -20,3 +20,18 @@ def site_settings(request):
             "map_url": settings_obj.map_url,
         }
     }
+
+def hreflang_urls(request):
+    """Строит корректные alternate-ссылки для ru/ky без задвоения префикса."""
+    path = request.path
+    if path.startswith("/ky/"):
+        ru_path = path[3:] or "/"
+    else:
+        ru_path = path
+    ky_path = "/ky" + ru_path if ru_path != "/" else "/ky/"
+
+    base = f"{request.scheme}://{request.get_host()}"
+    return {
+        "hreflang_ru": base + ru_path,
+        "hreflang_ky": base + ky_path,
+    }
