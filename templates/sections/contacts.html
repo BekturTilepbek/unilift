@@ -1,0 +1,31 @@
+{% load i18n %}
+<section class="contacts-section" id="contacts">
+  <div class="wrap">
+    <span class="eyebrow on-dark">{% translate "Контакты" %}</span>
+    <h2>{% translate "Обсудим ваш объект" %}</h2>
+
+    <div class="contacts-grid">
+      <div class="contacts-info">
+        {% if site.phone %}
+          <a href="tel:{{ site.phone }}" class="contact-line">{{ site.phone_display }}</a>
+        {% endif %}
+        {% if site.email %}
+          <a href="mailto:{{ site.email }}" class="contact-line">{{ site.email }}</a>
+        {% endif %}
+        {% if site.address %}
+          <p class="contact-line">{{ site.address }}</p>
+        {% endif %}
+        <p class="contact-line contact-hours">{{ site.work_hours }}</p>
+
+        <div class="contact-buttons">
+          {% if site.whatsapp %}
+            <a href="{{ site.whatsapp }}" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp</a>
+          {% endif %}
+          {% if site.telegram %}
+            <a href="{{ site.telegram }}" class="btn btn-ghost on-dark" target="_blank" rel="noopener">Telegram</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

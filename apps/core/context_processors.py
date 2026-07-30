@@ -1,18 +1,22 @@
+from .models import SiteSettings
+
+
 def site_settings(request):
     """
-    Отдаёт общие для всех страниц данные (контакты, соцсети, часы работы) в шаблоны
-    как `site`. Пока модель SiteSettings не подключена (Фаза 5), возвращает заглушки —
-    шаблоны base.html/footer уже можно верстать против site.phone, site.address и т.д.
+    Отдаёт контакты клиента во все шаблоны как `site`. Данные читаются из
+    единственной записи SiteSettings — редактируется в админке без участия
+    разработчика.
     """
+    settings_obj = SiteSettings.load()
     return {
         "site": {
-            "phone": None,
-            "phone_display": None,
-            "whatsapp": None,
-            "telegram": None,
-            "email": None,
-            "address": None,
-            "work_hours": "Пн–Сб 09:00–18:00",
-            "map_url": None,
+            "phone": settings_obj.phone,
+            "phone_display": settings_obj.phone_display,
+            "whatsapp": settings_obj.whatsapp,
+            "telegram": settings_obj.telegram,
+            "email": settings_obj.email,
+            "address": settings_obj.address,
+            "work_hours": settings_obj.work_hours,
+            "map_url": settings_obj.map_url,
         }
     }

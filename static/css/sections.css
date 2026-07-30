@@ -118,3 +118,14 @@
 
 @media (max-width: 900px) { .pgrid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .pgrid { grid-template-columns: 1fr; } }
+
+/* ===================== CONTACTS ===================== */
+.contacts-section { padding: 90px 0; background: var(--ink); color: #fff; }
+.contacts-section h2 { color: #fff; font-size: clamp(28px, 3.2vw, 42px); margin: 16px 0 40px; }
+.contact-line {
+  display: block; font-size: 17px; color: var(--steel-300);
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.contact-line:hover { color: #fff; }
+.contact-hours { color: var(--steel-500); font-size: 14px; }
+.contact-buttons { display: flex; gap: 16px; margin-top: 28px; }
