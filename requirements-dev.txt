@@ -1,0 +1,7 @@
+# Зависимости только для локальной разработки.
+# Установка:  pip install -r requirements-dev.txt
+
+-r requirements.txt
+
+django-debug-toolbar==6.3.0
+ruff==0.16.0

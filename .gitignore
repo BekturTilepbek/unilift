@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ruff_cache/
+
+# Django
+*.log
+db/
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+/media/
+!/media/.gitkeep
+
+# Окружение
+.env
+.env.*
+!.env.example
+
+# Редакторы / ОС
+.vscode/
+.idea/
+.DS_Store
