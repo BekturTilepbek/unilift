@@ -1,0 +1,18 @@
+services:
+  web:
+    build:
+      context: .
+      target: dev          # локально собираем дев-стейдж из Dockerfile
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings.dev
+    volumes:
+      - .:/app             # код монтируем с хоста — правки видны без пересборки
+      - media_data:/app/media
+    ports:
+      - "8000:8000"
+
+volumes:
+  media_data:
