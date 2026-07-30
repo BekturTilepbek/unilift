@@ -1,6 +1,40 @@
-{# Многоколоночный футер с контактами — Фаза 1 / Фаза 5. #}
-<footer class="footer-placeholder">
+{% load static i18n %}
+<footer>
   <div class="wrap">
-    <p class="mono">© {% now "Y" %} ЮНИЛИФТ · Официальный дистрибьютор Schindler в Кыргызстане</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="{% url 'core:home' %}" class="brand">
+          <img src="{% static 'img/logo-unilift-placeholder.svg' %}" alt="Юнилифт">
+          <span class="brand-name">ЮНИЛИФТ</span>
+        </a>
+        <p>{% translate "Официальный дистрибьютор Schindler в Кыргызстане. Поставка, монтаж и сервисное обслуживание лифтов, эскалаторов и подъёмного оборудования." %}</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>{% translate "Навигация" %}</h4>
+        <a href="#products">{% translate "Оборудование" %}</a>
+        <a href="#services">{% translate "Услуги" %}</a>
+        <a href="#projects">{% translate "Проекты" %}</a>
+        <a href="#why">{% translate "О компании" %}</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>{% translate "Контакты" %}</h4>
+        {% if site.phone %}<a href="tel:{{ site.phone }}">{{ site.phone_display }}</a>{% endif %}
+        {% if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}
+        {% if site.address %}<p>{{ site.address }}</p>{% endif %}
+        <p>{{ site.work_hours }}</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Schindler</h4>
+        <img src="{% static 'img/logo-schindler-placeholder.svg' %}" alt="Schindler" style="margin-top:4px;">
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="mono">© {% now "Y" %} {% translate "ЮНИЛИФТ" %}</span>
+      <span>{% translate "Официальный дистрибьютор Schindler в Кыргызстане" %}</span>
+    </div>
   </div>
 </footer>
