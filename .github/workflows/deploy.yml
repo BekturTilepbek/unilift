@@ -48,13 +48,16 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            mkdir -p ~/unilift
+            if [ ! -d ~/unilift/.git ]; then
+              git clone https://github.com/BekturTilepbek/unilift.git ~/unilift
+            fi
             cd ~/unilift
+            git fetch origin main
+            git reset --hard origin/main
             cat > .env << 'ENVEOF'
             ${{ secrets.ENV_FILE }}
             ENVEOF
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-            docker pull ghcr.io/bekturtilepbek/unilift:latest
-            docker compose -f docker-compose.demo.yml down
+            docker compose -f docker-compose.demo.yml pull
             docker compose -f docker-compose.demo.yml up -d
             docker image prune -f
